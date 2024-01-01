@@ -8,10 +8,11 @@ import (
 )
 
 type ObserveResponse struct {
-	Code   int    `json:"code"`
-	Msg    string `json:"msg"`
-	Counts int    `json:"counts"` // 访问的剩余次数
-	Data   struct {
+	Code       int    `json:"code"`
+	Directions string `json:"directions,omitempty"`
+	Msg        string `json:"msg"`
+	Counts     int    `json:"counts,omitempty"` // 访问的剩余次数
+	Data       struct {
 		CityId     string      `json:"cityId"`     // 城市id
 		CityName   string      `json:"cityName"`   // 城市名称
 		LastUpdate string      `json:"lastUpdate"` // 实况更新时间
@@ -23,7 +24,7 @@ type ObserveResponse struct {
 		Fx         string      `json:"fx"`         // 当前风向
 		Numfx      interface{} `json:"numfx"`      // 当前风向编码
 		Sd         string      `json:"sd"`         // 相对湿度，直接在此数值后添加%即可
-	} `json:"data"`
+	} `json:"data,omitempty"`
 }
 
 type ObserveResult struct {

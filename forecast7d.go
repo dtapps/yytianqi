@@ -8,10 +8,11 @@ import (
 )
 
 type Forecast7dResponse struct {
-	Code   int    `json:"code"`
-	Msg    string `json:"msg"`
-	Counts int    `json:"counts"` // 访问的剩余次数
-	Data   struct {
+	Code       int    `json:"code"`
+	Directions string `json:"directions,omitempty"`
+	Msg        string `json:"msg"`
+	Counts     int    `json:"counts,omitempty"` // 访问的剩余次数
+	Data       struct {
 		CityId   string `json:"cityId"`   // 城市id
 		CityName string `json:"cityName"` // 城市名称
 		Sj       string `json:"sj"`       // 数据更新时间
@@ -32,7 +33,7 @@ type Forecast7dResponse struct {
 			Numfx2 string      `json:"numfx2"` // 夜间风向编码
 			Date   string      `json:"date"`   // 预报日期
 		} `json:"list"`
-	} `json:"data"`
+	} `json:"data,omitempty"`
 }
 
 type Forecast7dResult struct {
